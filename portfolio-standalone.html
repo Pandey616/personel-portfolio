@@ -1,0 +1,2583 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Portfolio of Hari Om Pandey: frontend engineering, Generative AI, Copilot Agents and Microsoft Power Platform automation."
+    />
+    <meta name="theme-color" content="#0b0f14" />
+    <title>
+      Hari Om Pandey - Front-End Developer | AI & Automation Engineer
+    </title>
+    <style>
+      :root {
+        --nav-height: 76px;
+        --bg: #0b0f14;
+        --fg: #edf2f7;
+        --muted: #95a2af;
+        --line: rgba(255, 255, 255, 0.11);
+        --panel: rgba(18, 25, 32, 0.82);
+        --signal: #c7f36b;
+        --blue: #7dd3fc;
+        --danger: #fda4af;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: calc(var(--nav-height) + 16px);
+        overflow-x: hidden;
+        scrollbar-color: rgba(199, 243, 107, 0.72) #0b0f14;
+        scrollbar-width: thin;
+      }
+      body {
+        background: var(--bg);
+        color: var(--fg);
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        min-width: 320px;
+        overflow-x: hidden;
+      }
+      main {
+        padding-top: var(--nav-height);
+      }
+      body:before {
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px
+          );
+        background-size: 56px 56px;
+        content: "";
+        inset: 0;
+        mask-image: linear-gradient(to bottom, #000, transparent 65%);
+        pointer-events: none;
+        position: fixed;
+        z-index: -1;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button,
+      input,
+      textarea {
+        font: inherit;
+      }
+      button {
+        cursor: pointer;
+      }
+      ::selection {
+        background: var(--signal);
+        color: #0b0f14;
+      }
+      ::-webkit-scrollbar {
+        height: 10px;
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0b0f14;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(
+          180deg,
+          rgba(199, 243, 107, 0.9),
+          rgba(125, 211, 252, 0.75)
+        );
+        border: 2px solid #0b0f14;
+        border-radius: 999px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #d8ff88;
+      }
+      .wrap {
+        margin: 0 auto;
+        max-width: 1180px;
+        width: calc(100% - 40px);
+      }
+      .display {
+        letter-spacing: -0.06em;
+        line-height: 0.98;
+      }
+      .eyebrow {
+        color: var(--signal);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        box-shadow: 0 20px 80px rgba(0, 0, 0, 0.18);
+      }
+      .panel:hover {
+        background: rgba(24, 33, 42, 0.92);
+        border-color: rgba(199, 243, 107, 0.35);
+        transform: translateY(-3px);
+      }
+      .panel,
+      .btn {
+        transition:
+          background 0.2s ease,
+          border-color 0.2s ease,
+          transform 0.2s ease;
+      }
+      .btn {
+        align-items: center;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        display: inline-flex;
+        font-size: 14px;
+        font-weight: 700;
+        gap: 9px;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 19px;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .primary {
+        background: var(--signal);
+        color: #10160b;
+      }
+      .primary:hover {
+        background: #d8ff88;
+      }
+      .secondary {
+        border-color: var(--line);
+        color: var(--fg);
+      }
+      .secondary:hover {
+        background: rgba(199, 243, 107, 0.07);
+        border-color: rgba(199, 243, 107, 0.55);
+      }
+      .focus:focus-visible,
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      textarea:focus-visible {
+        outline: 2px solid var(--signal);
+        outline-offset: 4px;
+      }
+      .section {
+        padding: 108px 0;
+      }
+      .section-tight {
+        padding: 72px 0;
+      }
+      .grid {
+        display: grid;
+      }
+      .two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .three {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .four {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+      .gap-4 {
+        gap: 16px;
+      }
+      .gap-6 {
+        gap: 24px;
+      }
+      .gap-8 {
+        gap: 32px;
+      }
+      .hidden {
+        display: none;
+      }
+      header {
+        backdrop-filter: blur(16px);
+        background: rgba(11, 15, 20, 0.84);
+        border-bottom: 1px solid var(--line);
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 10;
+      }
+      .nav {
+        align-items: center;
+        display: flex;
+        gap: 24px;
+        justify-content: space-between;
+        min-height: var(--nav-height);
+      }
+      .brand {
+        align-items: center;
+        display: flex;
+        font-size: 14px;
+        font-weight: 700;
+        gap: 12px;
+        letter-spacing: 0.02em;
+      }
+      .brand-mark {
+        align-items: center;
+        background: var(--signal);
+        border-radius: 12px;
+        color: #0b0f14;
+        display: grid;
+        font-size: 14px;
+        font-weight: 900;
+        height: 36px;
+        place-items: center;
+        width: 36px;
+      }
+      .nav-links {
+        align-items: center;
+        color: #95a2af;
+        display: flex;
+        font-size: 14px;
+        gap: 8px;
+      }
+      .nav-links a {
+        border: 1px solid transparent;
+        border-radius: 999px;
+        padding: 10px 12px;
+        transition:
+          background 0.2s ease,
+          border-color 0.2s ease,
+          color 0.2s ease,
+          transform 0.2s ease;
+      }
+      .nav-links a:hover {
+        background: rgba(199, 243, 107, 0.08);
+        border-color: rgba(199, 243, 107, 0.28);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+      .nav-actions {
+        display: flex;
+        gap: 10px;
+      }
+      .menu-btn {
+        background: transparent;
+        color: #fff;
+        display: none;
+        font-size: 20px;
+        padding: 9px;
+      }
+      .mobile-nav {
+        border-top: 1px solid var(--line);
+        padding: 12px 0 16px;
+      }
+      .mobile-nav a {
+        border: 1px solid transparent;
+        border-radius: 9px;
+        color: #cbd5df;
+        display: block;
+        padding: 12px;
+        transition:
+          background 0.2s ease,
+          border-color 0.2s ease,
+          color 0.2s ease,
+          transform 0.2s ease;
+      }
+      .mobile-nav a:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(199, 243, 107, 0.25);
+        color: #fff;
+        transform: translateX(3px);
+      }
+      .hero {
+        border-bottom: 1px solid var(--line);
+        overflow: hidden;
+      }
+      .hero-layout {
+        align-items: center;
+        display: grid;
+        gap: 56px;
+        grid-template-columns: 0.85fr 1.15fr;
+        min-height: 650px;
+        padding: 50px 0;
+      }
+      .hero-copy-column {
+        order: 2;
+      }
+      .hero-person-wrap {
+        align-items: flex-end;
+        display: flex;
+        justify-content: center;
+        min-height: 610px;
+        order: 1;
+        position: relative;
+      }
+      .hero-person-wrap .hero-orb {
+        bottom: 5%;
+        height: 78%;
+        inset-inline: 13%;
+        top: auto;
+        width: auto;
+      }
+      .hero-person-frame {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.06),
+          transparent
+        );
+        border: 1px solid var(--line);
+        border-radius: 10rem 10rem 0 0;
+        bottom: 0;
+        height: 88%;
+        position: absolute;
+        width: 72%;
+      }
+      .hero-person {
+        filter: drop-shadow(0 24px 35px rgba(0, 0, 0, 0.38));
+        height: 610px;
+        object-fit: contain;
+        object-position: bottom;
+        position: relative;
+        width: auto;
+        z-index: 1;
+      }
+      .hero-person-wrap > .focus-card {
+        display: none;
+      }
+      .hero h1 {
+        font-size: clamp(58px, 9vw, 108px);
+        margin: 28px 0 0;
+        max-width: 850px;
+      }
+      .hero-title {
+        color: #d6e0e8;
+        font-size: 21px;
+        line-height: 1.55;
+        margin: 28px 0 0;
+        max-width: 640px;
+      }
+      .hero-copy {
+        color: #7f8d9b;
+        font-size: 16px;
+        line-height: 1.8;
+        margin: 16px 0 0;
+        max-width: 640px;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 32px;
+      }
+      .scroll-note {
+        align-items: center;
+        color: #73808d;
+        display: flex;
+        font-size: 12px;
+        gap: 10px;
+        margin-top: 52px;
+      }
+      .signal {
+        color: var(--signal);
+      }
+      .hero-orb {
+        background: rgba(199, 243, 107, 0.09);
+        border-radius: 50%;
+        filter: blur(50px);
+        inset: -32px;
+        position: absolute;
+      }
+      .focus-card {
+        padding: 30px;
+        position: relative;
+      }
+      .focus-card > * {
+        position: relative;
+      }
+      .focus-card h2 {
+        font-size: 23px;
+        margin: 12px 0 0;
+      }
+      .focus-card ul {
+        list-style: none;
+        margin: 32px 0;
+        padding: 0;
+      }
+      .focus-card li {
+        align-items: center;
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 13px;
+        color: #cbd5df;
+        display: flex;
+        gap: 12px;
+        margin: 10px 0;
+        padding: 16px;
+      }
+      .focus-card li:nth-child(2) {
+        margin-left: 28px;
+      }
+      .focus-card li:nth-child(3) {
+        margin-left: 56px;
+      }
+      .icon {
+        color: var(--blue);
+        font-size: 18px;
+      }
+      .focus-card li:nth-child(2) .icon {
+        color: var(--signal);
+      }
+      .focus-card li:nth-child(3) .icon {
+        color: #c4b5fd;
+      }
+      .focus-foot {
+        border-top: 1px solid var(--line);
+        color: #73808d;
+        font-size: 14px;
+        line-height: 1.6;
+        padding-top: 18px;
+      }
+      .metrics {
+        border-bottom: 1px solid var(--line);
+        border-top: 1px solid var(--line);
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+      .metric {
+        border-right: 1px solid var(--line);
+        padding: 24px 16px;
+      }
+      .metric:last-child {
+        border: 0;
+      }
+      .metric strong {
+        display: block;
+        font-size: 34px;
+        letter-spacing: -0.05em;
+      }
+      .metric span {
+        color: #73808d;
+        display: block;
+        font-size: 12px;
+        line-height: 1.5;
+        margin-top: 8px;
+      }
+      .section-heading {
+        max-width: 660px;
+      }
+      .section-heading.center {
+        margin: 0 auto;
+        text-align: center;
+      }
+      .section-heading h2 {
+        font-size: clamp(38px, 5vw, 58px);
+        margin: 0;
+      }
+      .section-heading p:last-child {
+        color: #95a2af;
+        font-size: 16px;
+        line-height: 1.75;
+        margin: 20px 0 0;
+      }
+      .cards {
+        margin-top: 46px;
+      }
+      .tool-card,
+      .experience-card,
+      .skill-card,
+      .edu-card,
+      .cert-card {
+        padding: 26px;
+      }
+      .tool-card h3,
+      .skill-card h3 {
+        font-size: 20px;
+        margin: 28px 0 10px;
+      }
+      .tool-card p,
+      .skill-card p,
+      .edu-card p,
+      .cert-card p {
+        color: #73808d;
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 0;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 22px;
+      }
+      .chip {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: #95a2af;
+        font-size: 12px;
+        padding: 7px 10px;
+      }
+      .selected {
+        background: rgba(255, 255, 255, 0.018);
+        border-bottom: 1px solid var(--line);
+        border-top: 1px solid var(--line);
+      }
+      .split-heading {
+        align-items: end;
+        display: flex;
+        gap: 32px;
+        justify-content: space-between;
+      }
+      .experience-card {
+        scroll-margin-top: 100px;
+      }
+      .experience-card h3 {
+        font-size: 28px;
+        margin: 0;
+      }
+      .experience-top {
+        align-items: start;
+        display: flex;
+        gap: 16px;
+        justify-content: space-between;
+      }
+      .badge {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: #73808d;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        padding: 8px 11px;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .experience-body {
+        display: grid;
+        gap: 28px;
+        grid-template-columns: 1.05fr 0.95fr;
+        margin-top: 30px;
+      }
+      .experience-body p,
+      .case p {
+        color: #cbd5df;
+        font-size: 14px;
+        line-height: 1.8;
+        margin: 0;
+      }
+      .flow {
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 20px;
+      }
+      .flow-label {
+        color: #73808d;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .flow-steps {
+        color: #cbd5df;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 12px;
+        gap: 8px;
+        line-height: 1.7;
+        margin-top: 16px;
+      }
+      .flow-steps b {
+        color: var(--signal);
+        font-weight: 400;
+      }
+      .impact {
+        border-top: 1px solid var(--line);
+        color: #95a2af;
+        font-size: 14px;
+        line-height: 1.6;
+        margin-top: 22px;
+        padding-top: 16px;
+      }
+      .compact {
+        padding: 24px;
+      }
+      .compact h3 {
+        font-size: 22px;
+      }
+      .compact p {
+        color: #73808d;
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 16px 0 0;
+      }
+      .explore {
+        color: var(--signal);
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 700;
+        margin-top: 18px;
+      }
+      .route-hero {
+        padding: 88px 0 54px;
+        position: relative;
+      }
+      .route-hero:after {
+        background: radial-gradient(
+          circle,
+          rgba(125, 211, 252, 0.12),
+          transparent 62%
+        );
+        content: "";
+        height: 500px;
+        position: absolute;
+        right: -180px;
+        top: -250px;
+        width: 500px;
+        z-index: -1;
+      }
+      .route-hero h1 {
+        font-size: clamp(50px, 7vw, 88px);
+        margin: 0;
+        max-width: 900px;
+      }
+      .route-hero .lead {
+        color: #95a2af;
+        font-size: 18px;
+        line-height: 1.8;
+        margin: 26px 0 0;
+        max-width: 700px;
+      }
+      .about-copy {
+        color: #d6e0e8;
+        font-size: 20px;
+        line-height: 1.8;
+      }
+      .about-copy + .muted {
+        font-size: 16px;
+        line-height: 1.9;
+        margin-top: 20px;
+      }
+      .edu-card h3,
+      .cert-card h3 {
+        color: #fff;
+        font-size: 18px;
+        line-height: 1.4;
+        margin: 20px 0 6px;
+      }
+      .edu-card .date,
+      .cert-card .date {
+        color: #73808d;
+        font-size: 13px;
+      }
+      .skill-filter {
+        margin: 42px 0 28px;
+        max-width: 430px;
+        position: relative;
+      }
+      .skill-filter input,
+      .form-input {
+        background: rgba(255, 255, 255, 0.045);
+        border: 1px solid var(--line);
+        border-radius: 13px;
+        color: #fff;
+        min-width: 0;
+        outline: 0;
+        padding: 13px 14px;
+        width: 100%;
+      }
+      .skill-filter input {
+        padding-left: 16px;
+      }
+      .skill-filter input:focus,
+      .form-input:focus {
+        border-color: var(--signal);
+      }
+      .skill-card .number {
+        color: #73808d;
+        float: right;
+        font-size: 12px;
+      }
+      .skill-empty {
+        color: #95a2af;
+        padding: 22px;
+      }
+      .concept-card {
+        padding: 24px;
+      }
+      .concept-card h3 {
+        font-size: 18px;
+        margin: 30px 0 10px;
+      }
+      .concept-card p {
+        color: #73808d;
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 0;
+      }
+      .ai-flow {
+        align-items: stretch;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr auto 1fr;
+        margin-top: 24px;
+      }
+      .ai-step {
+        padding: 26px;
+      }
+      .ai-arrow {
+        align-self: center;
+        color: var(--signal);
+        padding: 0 12px;
+      }
+      .chat-layout {
+        align-items: start;
+        display: grid;
+        gap: 34px;
+        grid-template-columns: 0.72fr 1.28fr;
+      }
+      .guardrail {
+        display: flex;
+        gap: 12px;
+        position: sticky;
+        top: 100px;
+      }
+      .guardrail h2 {
+        font-size: 18px;
+        margin: 0;
+      }
+      .guardrail p {
+        color: #73808d;
+        font-size: 14px;
+        line-height: 1.8;
+        margin: 12px 0;
+      }
+      .chat {
+        overflow: hidden;
+      }
+      .chat-head {
+        align-items: center;
+        background: rgba(255, 255, 255, 0.025);
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        gap: 12px;
+        padding: 16px 20px;
+      }
+      .bot {
+        align-items: center;
+        background: rgba(199, 243, 107, 0.1);
+        border-radius: 11px;
+        color: var(--signal);
+        display: grid;
+        height: 36px;
+        place-items: center;
+        width: 36px;
+      }
+      .status {
+        color: #73808d;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        margin-left: auto;
+        text-transform: uppercase;
+      }
+      .status i {
+        background: var(--signal);
+        border-radius: 50%;
+        display: inline-block;
+        height: 7px;
+        margin-right: 6px;
+        width: 7px;
+      }
+      .messages {
+        max-height: 450px;
+        min-height: 330px;
+        overflow: auto;
+        padding: 20px;
+      }
+      .message {
+        display: flex;
+        gap: 10px;
+        margin: 0 0 16px;
+      }
+      .message.user {
+        justify-content: flex-end;
+      }
+      .avatar {
+        align-items: center;
+        background: rgba(199, 243, 107, 0.1);
+        border-radius: 8px;
+        color: var(--signal);
+        display: grid;
+        flex: 0 0 28px;
+        height: 28px;
+        place-items: center;
+        width: 28px;
+      }
+      .user .avatar {
+        background: rgba(255, 255, 255, 0.08);
+        color: #95a2af;
+        order: 2;
+      }
+      .bubble {
+        background: rgba(199, 243, 107, 0.07);
+        border-radius: 16px;
+        color: #cbd5df;
+        font-size: 14px;
+        line-height: 1.7;
+        max-width: 82%;
+        padding: 11px 14px;
+      }
+      .user .bubble {
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .quick-prompts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+      .quick-prompts button {
+        background: transparent;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: #95a2af;
+        font-size: 11px;
+        padding: 7px 10px;
+      }
+      .quick-prompts button:hover {
+        border-color: rgba(199, 243, 107, 0.5);
+        color: #fff;
+      }
+      .chat-form {
+        border-top: 1px solid var(--line);
+        padding: 20px;
+      }
+      .chat-row {
+        display: flex;
+        gap: 8px;
+      }
+      .chat-row button {
+        flex: 0 0 50px;
+        padding: 0;
+      }
+      .contact-grid {
+        align-items: start;
+        display: grid;
+        gap: 38px;
+        grid-template-columns: 0.72fr 1.28fr;
+      }
+      .direct {
+        display: grid;
+        gap: 10px;
+      }
+      .direct a {
+        align-items: center;
+        display: flex;
+        gap: 14px;
+        padding: 15px;
+      }
+      .direct-icon {
+        align-items: center;
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 12px;
+        color: var(--signal);
+        display: grid;
+        height: 40px;
+        place-items: center;
+        width: 40px;
+      }
+      .direct-text small {
+        color: #73808d;
+        display: block;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .direct-text span {
+        color: #cbd5df;
+        display: block;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+      .direct-arrow {
+        color: #73808d;
+        margin-left: auto;
+      }
+      .form-card {
+        padding: 26px;
+      }
+      .form-group {
+        margin-bottom: 18px;
+      }
+      .form-label {
+        color: #d7e0e8;
+        display: block;
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .form-input {
+        font-size: 14px;
+      }
+      .textarea {
+        min-height: 140px;
+        resize: vertical;
+      }
+      .error {
+        color: var(--danger);
+        font-size: 12px;
+        margin-top: 6px;
+      }
+      .success {
+        background: rgba(199, 243, 107, 0.1);
+        border: 1px solid rgba(199, 243, 107, 0.3);
+        border-radius: 12px;
+        color: var(--signal);
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 18px;
+        padding: 13px;
+      }
+      .resume-paper {
+        padding: 34px;
+      }
+      .resume-head {
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 26px;
+      }
+      .resume-head h2 {
+        font-size: 52px;
+        margin: 14px 0 8px;
+      }
+      .resume-contact {
+        color: #95a2af;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 13px;
+        gap: 18px;
+      }
+      .resume-columns {
+        display: grid;
+        gap: 44px;
+        grid-template-columns: 1.3fr 0.7fr;
+        margin-top: 36px;
+      }
+      .resume-section {
+        margin-bottom: 38px;
+      }
+      .resume-section h2 {
+        margin-bottom: 20px;
+      }
+      .resume-section h3 {
+        color: #fff;
+        font-size: 16px;
+        margin: 0;
+      }
+      .resume-section p,
+      .resume-section li {
+        color: #95a2af;
+        font-size: 13px;
+        line-height: 1.75;
+      }
+      .resume-section ul {
+        padding-left: 20px;
+      }
+      .print-only {
+        display: none;
+      }
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+        .nav-actions {
+          display: none;
+        }
+        .menu-btn {
+          display: block;
+        }
+        .hero-layout {
+          grid-template-columns: 1fr;
+          padding: 86px 0;
+        }
+        .hero-copy-column,
+        .hero-person-wrap {
+          order: initial;
+        }
+        .hero-person-wrap {
+          min-height: 540px;
+        }
+        .hero-person {
+          height: 540px;
+        }
+        .hero-orb {
+          inset: 20px 10% auto;
+          height: 280px;
+        }
+        .hero-layout .focus-card {
+          max-width: 430px;
+        }
+        .four {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .three {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .chat-layout,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+        .guardrail {
+          position: static;
+        }
+        .ai-flow {
+          grid-template-columns: 1fr;
+        }
+        .ai-arrow {
+          display: none;
+        }
+        .resume-columns {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 620px) {
+        .wrap {
+          width: calc(100% - 28px);
+        }
+        .section {
+          padding: 78px 0;
+        }
+        .section-tight {
+          padding: 56px 0;
+        }
+        .hero h1 {
+          font-size: 58px;
+        }
+        .hero-title {
+          font-size: 18px;
+        }
+        .metrics {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .metric:nth-child(2) {
+          border-right: 0;
+        }
+        .metric:nth-child(3),
+        .metric:nth-child(4) {
+          border-top: 1px solid var(--line);
+        }
+        .metric:nth-child(5) {
+          border-right: 0;
+          border-top: 1px solid var(--line);
+          grid-column: span 2;
+        }
+        .two,
+        .three,
+        .four {
+          grid-template-columns: 1fr;
+        }
+        .split-heading {
+          align-items: start;
+          flex-direction: column;
+        }
+        .experience-top {
+          display: block;
+        }
+        .badge {
+          display: inline-block;
+          margin-top: 16px;
+        }
+        .experience-body {
+          grid-template-columns: 1fr;
+        }
+        .resume-head h2 {
+          font-size: 40px;
+        }
+        .resume-paper {
+          padding: 22px;
+        }
+        .resume-contact {
+          gap: 10px;
+        }
+        .route-hero {
+          padding: 68px 0 38px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .panel,
+        .btn {
+          transition: none;
+        }
+        .panel:hover,
+        .btn:hover {
+          transform: none;
+        }
+      }
+      @media print {
+        body {
+          background: #fff;
+          color: #111;
+        }
+        main {
+          padding-top: 0;
+        }
+        body:before,
+        header,
+        .no-print {
+          display: none !important;
+        }
+        .resume-paper {
+          border: 0;
+          box-shadow: none;
+          color: #111;
+          padding: 0;
+        }
+        .resume-section h3,
+        .resume-head h2 {
+          color: #111;
+        }
+        .resume-section p,
+        .resume-section li,
+        .resume-contact {
+          color: #333;
+        }
+        .eyebrow {
+          color: #111;
+        }
+        .print-only {
+          display: block;
+        }
+        .section-tight {
+          padding: 0;
+        }
+      }
+      .theme-toggle {
+        align-items: center;
+        background: transparent;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--fg);
+        display: inline-flex;
+        font-size: 12px;
+        font-weight: 700;
+        gap: 7px;
+        min-height: 38px;
+        padding: 0 13px;
+        white-space: nowrap;
+      }
+      .theme-toggle:hover {
+        background: rgba(199, 243, 107, 0.08);
+        border-color: rgba(199, 243, 107, 0.55);
+        transform: translateY(-2px);
+      }
+      .theme-icon {
+        font-size: 16px;
+        line-height: 1;
+      }
+      .theme-toggle,
+      .theme-toggle:hover {
+        transition:
+          background 0.2s ease,
+          border-color 0.2s ease,
+          color 0.2s ease,
+          transform 0.2s ease;
+      }
+      html[data-theme="light"] {
+        color-scheme: light;
+        --bg: #f5f7f4;
+        --fg: #16201b;
+        --muted: #64736b;
+        --line: rgba(22, 32, 27, 0.14);
+        --panel: rgba(255, 255, 255, 0.88);
+        --signal: #6c9725;
+        --blue: #16789d;
+        --danger: #c2415a;
+        scrollbar-color: rgba(108, 151, 37, 0.7) #f5f7f4;
+      }
+      html[data-theme="light"] body:before {
+        background-image:
+          linear-gradient(rgba(22, 32, 27, 0.055) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(22, 32, 27, 0.055) 1px, transparent 1px);
+      }
+      html[data-theme="light"] header {
+        background: rgba(245, 247, 244, 0.84);
+      }
+      html[data-theme="light"] ::selection {
+        background: var(--signal);
+        color: #fff;
+      }
+      html[data-theme="light"] ::-webkit-scrollbar-track {
+        background: #f5f7f4;
+      }
+      html[data-theme="light"] ::-webkit-scrollbar-thumb {
+        background: linear-gradient(
+          180deg,
+          rgba(108, 151, 37, 0.85),
+          rgba(22, 120, 157, 0.7)
+        );
+        border-color: #f5f7f4;
+      }
+      html[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+        background: #527d14;
+      }
+      html[data-theme="light"] .brand-mark {
+        color: #fff;
+      }
+      html[data-theme="light"] .nav-links {
+        color: #64736b;
+      }
+      html[data-theme="light"] .nav-links a:hover {
+        color: #16201b;
+      }
+      html[data-theme="light"] .menu-btn {
+        color: #16201b;
+      }
+      html[data-theme="light"] .mobile-nav a {
+        color: #34463c;
+      }
+      html[data-theme="light"] .mobile-nav a:hover {
+        background: rgba(22, 32, 27, 0.05);
+      }
+      html[data-theme="light"] .panel:hover {
+        background: rgba(255, 255, 255, 0.98);
+        border-color: rgba(108, 151, 37, 0.4);
+      }
+      html[data-theme="light"] .primary {
+        color: #fff;
+      }
+      html[data-theme="light"] .primary:hover {
+        background: #82ad32;
+      }
+      html[data-theme="light"] .secondary:hover {
+        background: rgba(108, 151, 37, 0.09);
+        border-color: rgba(108, 151, 37, 0.55);
+      }
+      html[data-theme="light"] .hero-title,
+      html[data-theme="light"] .about-copy,
+      html[data-theme="light"] .experience-body p,
+      html[data-theme="light"] .case p {
+        color: #34463c;
+      }
+      html[data-theme="light"] .hero-copy,
+      html[data-theme="light"] .section-heading p:last-child,
+      html[data-theme="light"] .tool-card p,
+      html[data-theme="light"] .skill-card p,
+      html[data-theme="light"] .edu-card p,
+      html[data-theme="light"] .cert-card p,
+      html[data-theme="light"] .compact p,
+      html[data-theme="light"] .route-hero .lead,
+      html[data-theme="light"] .concept-card p,
+      html[data-theme="light"] .guardrail p,
+      html[data-theme="light"] .chat .bubble,
+      html[data-theme="light"] .resume-section p,
+      html[data-theme="light"] .resume-section li {
+        color: #64736b;
+      }
+      html[data-theme="light"] .metric span,
+      html[data-theme="light"] .focus-foot,
+      html[data-theme="light"] .flow-label,
+      html[data-theme="light"] .impact,
+      html[data-theme="light"] .badge,
+      html[data-theme="light"] .skill-card .number,
+      html[data-theme="light"] .direct-text small,
+      html[data-theme="light"] .direct-arrow,
+      html[data-theme="light"] .status,
+      html[data-theme="light"] .resume-contact {
+        color: #718078;
+      }
+      html[data-theme="light"] .focus-card li,
+      html[data-theme="light"] .flow {
+        background: rgba(22, 32, 27, 0.045);
+        border-color: rgba(22, 32, 27, 0.1);
+      }
+      html[data-theme="light"] .focus-card li,
+      html[data-theme="light"] .flow-steps,
+      html[data-theme="light"] .chat .bubble {
+        color: #34463c;
+      }
+      html[data-theme="light"] .chat-head,
+      html[data-theme="light"] .user .bubble,
+      html[data-theme="light"] .user .avatar {
+        background: rgba(22, 32, 27, 0.055);
+      }
+      html[data-theme="light"] .bubble {
+        background: rgba(108, 151, 37, 0.1);
+      }
+      html[data-theme="light"] .skill-filter input,
+      html[data-theme="light"] .form-input {
+        background: rgba(255, 255, 255, 0.76);
+        color: #16201b;
+      }
+      html[data-theme="light"] .form-label {
+        color: #34463c;
+      }
+      html[data-theme="light"] .quick-prompts button {
+        color: #64736b;
+      }
+      html[data-theme="light"] .quick-prompts button:hover {
+        color: #16201b;
+      }
+      html[data-theme="light"] .direct-text span {
+        color: #34463c;
+      }
+      html[data-theme="light"] .direct-icon {
+        background: rgba(22, 32, 27, 0.06);
+      }
+      html[data-theme="light"] .edu-card h3,
+      html[data-theme="light"] .cert-card h3,
+      html[data-theme="light"] .resume-section h3 {
+        color: #16201b;
+      }
+      html[data-theme="light"] .success {
+        background: rgba(108, 151, 37, 0.1);
+      }
+      @media (max-width: 900px) {
+        .nav {
+          gap: 12px;
+        }
+      }
+      @media (max-width: 620px) {
+        .nav {
+          gap: 10px;
+        }
+        .brand {
+          font-size: 12px;
+          gap: 8px;
+        }
+        .brand-mark {
+          border-radius: 10px;
+          font-size: 13px;
+          height: 32px;
+          width: 32px;
+        }
+        .theme-toggle {
+          font-size: 0;
+          gap: 0;
+          height: 38px;
+          padding: 0;
+          width: 38px;
+        }
+      }
+      .metrics {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+      @media (max-width: 620px) {
+        .metrics {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .metric:nth-child(2) {
+          border-right: 0;
+        }
+        .metric:nth-child(3),
+        .metric:nth-child(4) {
+          border-top: 1px solid var(--line);
+        }
+        .metric:nth-child(5) {
+          border-top: 1px solid var(--line);
+        }
+        .metric:nth-child(6) {
+          border-right: 0;
+          border-top: 1px solid var(--line);
+          grid-column: span 2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="no-print">
+      <div class="wrap nav">
+        <a class="brand" href="#home" aria-label="Hari Om Pandey home"
+          ><span class="brand-mark">H</span><span>HARI OM PANDEY</span></a
+        >
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#about">About</a><a href="#experience">Experience</a
+          ><a href="#skills">Skills</a><a href="#ai-lab">AI Lab</a
+          ><a href="#ask-hari">Ask Hari</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="btn secondary" href="#resume">Resume</a
+          ><a class="btn primary" href="#contact">Let's talk</a>
+        </div>
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Switch to light theme"
+          aria-pressed="false"
+        >
+          <span id="themeIcon" class="theme-icon" aria-hidden="true">☼</span
+          ><span id="themeText">Light</span></button
+        ><button
+          id="menuButton"
+          class="menu-btn"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+      </div>
+      <nav
+        id="mobileNav"
+        class="wrap mobile-nav hidden"
+        aria-label="Mobile navigation"
+      >
+        <a href="#about">About</a><a href="#experience">Experience</a
+        ><a href="#skills">Skills</a><a href="#ai-lab">AI Lab</a
+        ><a href="#ask-hari">Ask Hari</a><a href="#contact">Contact</a
+        ><a href="#resume">Resume</a>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="wrap hero-layout">
+          <div class="hero-copy-column">
+            <p class="eyebrow">
+              Available for thoughtful engineering conversations
+            </p>
+            <h1 class="display">Hari Om Pandey<span class="signal">.</span></h1>
+            <p class="hero-title">
+              Front-End Developer | AI & Automation Engineer
+            </p>
+            <p class="hero-copy">
+              3+ years of continuous frontend development, evolving from web
+              fundamentals and React applications into professional business
+              systems powered by automation, data and AI.
+            </p>
+            <div class="actions">
+              <a class="btn primary" href="#experience">View experience ↗</a
+              ><a class="btn secondary" href="#ask-hari">Ask Hari</a
+              ><a class="btn secondary" href="#resume">Resume</a>
+            </div>
+            <!-- <div class="panel focus-card">
+              <p class="eyebrow">Current focus</p>
+              <h2>Systems that connect</h2>
+              <ul>
+                <li><span class="icon">Focus</span>Frontend interfaces</li>
+                <li><span class="icon">Flow</span>Business automation</li>
+                <li><span class="icon">AI</span>Grounded AI</li>
+              </ul>
+              <p class="focus-foot">
+                From a clear user journey to the workflow behind it.
+              </p>
+            </div> -->
+            <p class="scroll-note">
+              <span class="signal">↓</span> Scroll to explore the work
+            </p>
+          </div>
+          <div class="hero-person-wrap">
+            <div class="hero-orb"></div>
+            <div class="hero-person-frame"></div>
+            <img
+              class="hero-person"
+              src="public/images/hari-om-pandey.png"
+              alt="Hari Om Pandey in a navy suit"
+              width="779"
+              height="2020"
+            />
+            <div class="panel focus-card">
+              <p class="eyebrow">Current focus</p>
+              <h2>Systems that connect</h2>
+              <ul>
+                <li><span class="icon">◈</span>Frontend interfaces</li>
+                <li><span class="icon">⌘</span>Business automation</li>
+                <li><span class="icon">✦</span>Grounded AI</li>
+              </ul>
+              <p class="focus-foot">
+                From a clear user journey to the workflow behind it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-tight">
+        <div class="wrap">
+          <div class="metrics">
+            <div class="metric">
+              <strong>3+</strong><span>years frontend development</span>
+            </div>
+            <div class="metric">
+              <strong>1+</strong
+              ><span>year professional application development</span>
+            </div>
+            <div class="metric">
+              <strong>3</strong><span>business applications</span>
+            </div>
+            <div class="metric">
+              <strong>12+</strong><span>automated flows</span>
+            </div>
+            <div class="metric">
+              <strong>3+</strong><span>departments impacted</span>
+            </div>
+            <div class="metric">
+              <strong>50%+</strong><span>targeted manual work automated</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap">
+          <div class="section-heading">
+            <p class="eyebrow">The toolkit</p>
+            <h2 class="display">Where the work meets the stack.</h2>
+            <p>
+              A working set across interface development, Microsoft business
+              applications and grounded AI experiences.
+            </p>
+          </div>
+          <div id="toolCards" class="grid three gap-4 cards"></div>
+        </div>
+      </section>
+      <section id="experience" class="section selected">
+        <div class="wrap">
+          <div class="split-heading">
+            <div class="section-heading">
+              <p class="eyebrow">
+                Experience / 3+ years of building for the web
+              </p>
+              <h2 class="display">
+                From frontend foundations to professional engineering.
+              </h2>
+              <p>
+                3+ years of building for the web - from frontend foundations and
+                React applications to production-oriented business systems,
+                workflow automation and AI-assisted applications.
+              </p>
+              <p style="margin-top: 12px">
+                Professional Engineering - Maruti Suzuki India Limited · Fixed
+                Term Graduate Executive · Interior Lighting & Accessories · Sep
+                2025 - Present
+              </p>
+            </div>
+            <a class="btn secondary" href="#experience-cases"
+              >All case studies ↗</a
+            >
+          </div>
+          <div class="panel" style="margin-top: 32px; padding: 24px">
+            <p class="eyebrow">Foundation / 2023 - 2025</p>
+            <p
+              style="
+                color: #cbd5df;
+                font-size: 14px;
+                line-height: 1.8;
+                margin: 12px 0 0;
+              "
+            >
+              Built and iterated on web applications while developing strong
+              foundations in frontend architecture, responsive interfaces, API
+              integration and component-based development.
+            </p>
+            <div class="chips">
+              <span class="chip">HTML5</span><span class="chip">CSS3</span
+              ><span class="chip">JavaScript</span
+              ><span class="chip">React</span><span class="chip">REST APIs</span
+              ><span class="chip">Responsive UI</span
+              ><span class="chip">Component Architecture</span
+              ><span class="chip">Git / GitHub</span>
+            </div>
+          </div>
+          <div id="experience-cases" class="grid three gap-4 cards"></div>
+        </div>
+      </section>
+      <section class="section no-print">
+        <div class="wrap">
+          <div
+            class="panel"
+            style="
+              padding: clamp(30px, 6vw, 56px);
+              position: relative;
+              overflow: hidden;
+            "
+          >
+            <div
+              class="hero-orb"
+              style="inset: auto -80px -180px auto; height: 300px; width: 300px"
+            ></div>
+            <div style="max-width: 650px; position: relative">
+              <p class="eyebrow">For recruiters & hiring teams</p>
+              <h2
+                class="display"
+                style="font-size: clamp(40px, 6vw, 68px); margin: 16px 0 0"
+              >
+                Let's talk about the problem you're trying to solve.
+              </h2>
+              <p class="hero-copy">
+                Get a quick factual overview through Ask Hari, or reach out
+                directly with context about your role or team.
+              </p>
+              <div class="actions">
+                <a class="btn primary" href="#contact">Start a conversation ↗</a
+                ><a class="btn secondary" href="#ask-hari">Ask Hari</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="wrap">
+          <div class="route-hero" style="padding-top: 0">
+            <p class="eyebrow">About Hari</p>
+            <h2 class="display">A frontend lens on practical automation.</h2>
+            <p class="lead">
+              3+ years of continuous frontend development, evolving from web
+              fundamentals and React applications into professional business
+              systems powered by automation, data and AI.
+            </p>
+          </div>
+          <div class="grid two gap-8">
+            <div>
+              <p class="about-copy">
+                Hari Om Pandey is a Front-End Developer and AI & Automation
+                Engineer in Gurugram, Haryana. His journey moves from web
+                fundamentals and application development into professional
+                business-system engineering.
+              </p>
+              <p class="muted">
+                At Maruti Suzuki India Limited, he works as a Fixed Term
+                Graduate Executive in Interior Lighting & Accessories. This is
+                where frontend and application development moved into business
+                applications, automation, dashboards and AI-assisted retrieval.
+              </p>
+            </div>
+            <div class="panel experience-card">
+              <p class="eyebrow">Frontend development</p>
+              <h3>3+ years of frontend development</h3>
+              <p class="muted">2023 - 2025</p>
+              <p class="muted" style="margin-top: 18px">
+                Built and iterated on web applications while developing strong
+                foundations in frontend architecture, responsive interfaces, API
+                integration and component-based development.
+              </p>
+              <div class="chips">
+                <span class="chip">HTML5</span><span class="chip">CSS3</span
+                ><span class="chip">JavaScript</span
+                ><span class="chip">React</span
+                ><span class="chip">REST APIs</span
+                ><span class="chip">Responsive UI</span
+                ><span class="chip">Git / GitHub</span>
+              </div>
+            </div>
+          </div>
+          <div class="grid two gap-4 cards">
+            <div class="panel edu-card">
+              <span class="signal">✦</span>
+              <p class="date">Expected Dec 2027</p>
+              <h3>Master of Computer Applications (MCA)</h3>
+              <p>Amity University, Noida</p>
+              <p>Artificial Intelligence & Machine Learning</p>
+            </div>
+            <div class="panel edu-card">
+              <span class="signal">✦</span>
+              <p class="date">2022 - 2025</p>
+              <h3>Bachelor of Computer Applications (BCA)</h3>
+              <p>Maharishi Dayanand University, Rohtak</p>
+              <p>
+                Data Structures, Web Development, AI Fundamentals,
+                Object-Oriented Programming
+              </p>
+            </div>
+          </div>
+          <div class="grid three gap-4 cards">
+            <div class="panel cert-card">
+              <span class="signal">◆</span>
+              <h3>Prompt Engineering for AI</h3>
+              <p>DeepLearning.AI · 2024</p>
+            </div>
+            <div class="panel cert-card">
+              <span class="signal">◆</span>
+              <h3>Front-End Developer Certification</h3>
+              <p>One Roadmap · 2025</p>
+            </div>
+            <div class="panel cert-card">
+              <span class="signal">◆</span>
+              <h3>ChatGPT and Generative AI</h3>
+              <p>Udemy · 2025</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section selected">
+        <div class="wrap">
+          <div class="section-heading">
+            <p class="eyebrow">Skills / toolkit</p>
+            <h2 class="display">
+              A flexible stack for interfaces and workflows.
+            </h2>
+            <p>
+              Search the approved skills matrix by technology or browse the way
+              the capabilities are grouped in practice.
+            </p>
+          </div>
+          <div class="skill-filter">
+            <label class="sr-only" for="skillSearch">Filter skills</label
+            ><input
+              id="skillSearch"
+              placeholder="Filter by skill, e.g. React"
+            />
+          </div>
+          <div id="skillCards" class="grid two gap-4"></div>
+        </div>
+      </section>
+
+      <section id="ai-lab" class="section">
+        <div class="wrap">
+          <div class="route-hero" style="padding-top: 0">
+            <p class="eyebrow">AI lab / concepts</p>
+            <h2 class="display">
+              AI should clarify the workflow, not obscure it.
+            </h2>
+            <p class="lead">
+              A concept-led showcase of how Generative AI, prompting, Copilot
+              Agents and business automation can fit together without pretending
+              a live integration exists.
+            </p>
+          </div>
+          <div id="conceptCards" class="grid four gap-4"></div>
+          <div class="panel ai-flow">
+            <div class="ai-step">
+              <p class="eyebrow">Input</p>
+              <p class="muted">Approved business context</p>
+            </div>
+            <div class="ai-arrow">→</div>
+            <div class="ai-step">
+              <p class="eyebrow">Process</p>
+              <p class="muted">Grounded prompt + agent</p>
+            </div>
+            <div class="ai-arrow">→</div>
+            <div class="ai-step">
+              <p class="eyebrow">Output</p>
+              <p class="muted">Structured answer or workflow</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ask-hari" class="section selected">
+        <div class="wrap">
+          <div class="route-hero" style="padding-top: 0">
+            <p class="eyebrow">Ask Hari / factual assistant</p>
+            <h2 class="display">
+              A faster route to the right portfolio detail.
+            </h2>
+            <p class="lead">
+              Ask concise questions about Hari's experience, skills, education
+              and certifications. This standalone version uses the approved
+              local knowledge base and does not call an AI API.
+            </p>
+          </div>
+          <div class="chat-layout">
+            <div class="guardrail">
+              <span class="signal" style="font-size: 20px">◉</span>
+              <div>
+                <h2>Recruiter-safe by default</h2>
+                <p>
+                  No invented claims, private data or confidential Maruti
+                  details. If it is not in the knowledge base, the assistant
+                  says so.
+                </p>
+              </div>
+            </div>
+            <div class="panel chat">
+              <div class="chat-head">
+                <span class="bot">✦</span>
+                <div>
+                  <strong>Ask Hari</strong
+                  ><small class="muted" style="display: block; margin-top: 3px"
+                    >Grounded portfolio assistant</small
+                  >
+                </div>
+                <span class="status"><i></i>Available</span>
+              </div>
+              <div id="messages" class="messages"></div>
+              <div class="chat-form">
+                <div id="quickPrompts" class="quick-prompts"></div>
+                <form id="chatForm" class="chat-row">
+                  <label class="hidden" for="chatInput">Ask a question</label
+                  ><input
+                    id="chatInput"
+                    class="form-input"
+                    maxlength="500"
+                    placeholder="Ask a factual question..."
+                  /><button class="btn primary" aria-label="Send question">
+                    ↗
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="wrap">
+          <div class="route-hero" style="padding-top: 0">
+            <p class="eyebrow">Contact / next step</p>
+            <h2 class="display">Have a role, workflow or problem in mind?</h2>
+            <p class="lead">
+              Share the context and the conversation can start with something
+              concrete.
+            </p>
+          </div>
+          <div class="contact-grid">
+            <div>
+              <p class="eyebrow">Direct lines</p>
+              <div class="direct cards">
+                <a class="panel" href="mailto:thehariompandey@gmail.com"
+                  ><span class="direct-icon">@</span
+                  ><span class="direct-text"
+                    ><small>Email</small
+                    ><span>thehariompandey@gmail.com</span></span
+                  ><span class="direct-arrow">↗</span></a
+                ><a class="panel" href="tel:9310288080"
+                  ><span class="direct-icon">☎</span
+                  ><span class="direct-text"
+                    ><small>Phone</small><span>9310288080</span></span
+                  ><span class="direct-arrow">↗</span></a
+                >
+                <div class="panel">
+                  <span class="direct-icon">⌖</span
+                  ><span class="direct-text"
+                    ><small>Based in</small><span>Gurugram, Haryana</span></span
+                  >
+                </div>
+                <a
+                  class="panel"
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://www.linkedin.com/in/hari-om-pandey-b21ba0283/"
+                  ><span class="direct-icon">in</span
+                  ><span class="direct-text"
+                    ><small>LinkedIn</small
+                    ><span>Connect on LinkedIn</span></span
+                  ><span class="direct-arrow">↗</span></a
+                ><a
+                  class="panel"
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/Pandey616"
+                  ><span class="direct-icon">⌘</span
+                  ><span class="direct-text"
+                    ><small>GitHub</small><span>View GitHub</span></span
+                  ><span class="direct-arrow">↗</span></a
+                >
+              </div>
+            </div>
+            <div>
+              <p class="eyebrow">Email shortcut</p>
+              <div class="panel form-card">
+                <div id="formSuccess" class="success hidden"></div>
+                <form id="contactForm">
+                  <div class="form-group">
+                    <label class="form-label" for="name">Name</label
+                    ><input
+                      id="name"
+                      class="form-input"
+                      required
+                      minlength="2"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="email">Work email</label
+                    ><input
+                      id="email"
+                      class="form-input"
+                      type="email"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="message"
+                      >What would you like to discuss?</label
+                    ><textarea
+                      id="message"
+                      class="form-input textarea"
+                      required
+                      minlength="20"
+                    ></textarea>
+                  </div>
+                  <input
+                    id="website"
+                    class="hidden"
+                    tabindex="-1"
+                    autocomplete="off"
+                  /><button class="btn primary" type="submit">
+                    Prepare email
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="resume" class="section-tight">
+        <div class="wrap">
+          <div class="route-hero no-print" style="padding-top: 0">
+            <p class="eyebrow">Resume / snapshot</p>
+            <h2 class="display">The quick, printable version.</h2>
+            <p class="lead">
+              Use the button to print or save this current portfolio snapshot as
+              a PDF.
+            </p>
+            <button
+              id="printResume"
+              class="btn primary"
+              style="margin-top: 26px"
+            >
+              Print / save PDF
+            </button>
+          </div>
+          <div class="resume-paper">
+            <div class="resume-head">
+              <p class="eyebrow">Gurugram, Haryana</p>
+              <h2 class="display">Hari Om Pandey</h2>
+              <p class="signal" style="font-size: 18px">
+                Front-End Developer | AI & Automation Engineer
+              </p>
+              <div class="resume-contact" style="margin-top: 18px">
+                <span>thehariompandey@gmail.com</span><span>9310288080</span
+                ><span>LinkedIn</span><span>GitHub</span>
+              </div>
+            </div>
+            <div class="resume-columns">
+              <div>
+                <div class="resume-section">
+                  <h2 class="eyebrow">Experience</h2>
+                  <div>
+                    <div
+                      style="
+                        display: flex;
+                        justify-content: space-between;
+                        gap: 16px;
+                      "
+                    >
+                      <div>
+                        <h3>Fixed Term Graduate Executive</h3>
+                        <p>Maruti Suzuki India Limited</p>
+                      </div>
+                      <p>Sep 2025 - Present</p>
+                    </div>
+                    <ul id="resumeExperience"></ul>
+                  </div>
+                  <div
+                    style="
+                      border-top: 1px solid var(--line);
+                      margin-top: 24px;
+                      padding-top: 20px;
+                    "
+                  >
+                    <div
+                      style="
+                        display: flex;
+                        justify-content: space-between;
+                        gap: 16px;
+                      "
+                    >
+                      <div>
+                        <h3>Freelance Front-End Developer</h3>
+                        <p>Front-End Developer</p>
+                      </div>
+                      <p>2023 - 2025</p>
+                    </div>
+                    <p>
+                      Developed responsive web applications using HTML, CSS,
+                      JavaScript and React, focusing on reusable components, API
+                      integration and intuitive user experiences.
+                    </p>
+                  </div>
+                </div>
+                <div class="resume-section">
+                  <h2 class="eyebrow">Education</h2>
+                  <p>
+                    <strong>Master of Computer Applications (MCA)</strong
+                    ><br />Amity University, Noida · Expected Dec 2027<br />Artificial
+                    Intelligence & Machine Learning
+                  </p>
+                  <p>
+                    <strong>Bachelor of Computer Applications (BCA)</strong
+                    ><br />Maharishi Dayanand University, Rohtak · 2022 -
+                    2025<br />Data Structures, Web Development, AI Fundamentals,
+                    Object-Oriented Programming
+                  </p>
+                </div>
+              </div>
+              <aside>
+                <div class="resume-section">
+                  <h2 class="eyebrow">Skills</h2>
+                  <div id="resumeSkills"></div>
+                </div>
+                <div class="resume-section">
+                  <h2 class="eyebrow">Certifications</h2>
+                  <p>Prompt Engineering for AI - DeepLearning.AI (2024)</p>
+                  <p>Front-End Developer Certification - One Roadmap (2025)</p>
+                  <p>ChatGPT and Generative AI - Udemy (2025)</p>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer
+      class="no-print"
+      style="border-top: 1px solid var(--line); padding: 34px 0"
+    >
+      <div
+        class="wrap"
+        style="
+          display: flex;
+          gap: 24px;
+          justify-content: space-between;
+          align-items: end;
+        "
+      >
+        <div>
+          <p class="eyebrow">Build useful things</p>
+          <p
+            class="muted"
+            style="font-size: 13px; line-height: 1.6; max-width: 330px"
+          >
+            A recruiter-facing portfolio about frontend engineering, AI and
+            business automation.
+          </p>
+        </div>
+        <div style="display: flex; gap: 16px; font-size: 13px">
+          <a href="mailto:thehariompandey@gmail.com">Email</a
+          ><a
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/Pandey616"
+            >GitHub ↗</a
+          ><a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.linkedin.com/in/hari-om-pandey-b21ba0283/"
+            >LinkedIn ↗</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!-- Legacy inline script retained as reference; functional script is below. -->
+    <!-- const skills=[
+      {name:'Frontend',number:'01',description:'Interfaces that stay understandable as they grow.',items:['HTML5','CSS3','JavaScript','React','Next.js','Bootstrap','REST APIs','Responsive Web Applications','Reusable Components','API Integration','Intuitive User Experiences']},
+      {name:'Power Platform',number:'02',description:'Business applications and workflow automation with Microsoft tools.',items:['Power Apps','Power Automate','Power BI','SharePoint']},
+      {name:'AI & GenAI',number:'03',description:'Grounded AI experiences connected to useful business context.',items:['Generative AI','Prompt Engineering','Copilot Agents','OpenAI API','Gemini','Claude Code','Chatbot Development']},
+      {name:'Programming & Data',number:'04',description:'The data and integration layer behind reliable workflows.',items:['JavaScript','SQL','JSON','API Integration']},
+      {name:'Tools',number:'05',description:'A practical toolkit for shipping, testing and communicating work.',items:['Git','GitHub','VS Code','Postman','Figma','Advanced Excel','Advanced PowerPoint']}
+      {name:'Training Operations Platform',eyebrow:'Case study 02 / People operations',context:'A configurable training operations platform designed around reusable workflow logic, dynamic scheduling, hierarchical approvals and department-level reporting.',solution:'Built a Power Apps workflow around reusable business logic, dynamic scheduling, hierarchical approvals and dashboard aggregation.',capabilities:['Configurable workflows','Reusable business logic','Trainee onboarding','Dynamic scheduling','Training modules','Hierarchical approvals','Department scalability','Workflow automation'],technologies:['Power Apps','Power Automate','SharePoint','Power BI'],impact:'Reusable core logic currently supporting 3 departments and structured to scale toward 9+ departments with limited changes to the underlying logic.',flow:['Onboard','Plan','Schedule','Approve','Complete','Report']},
+    const projects=[
+      {name:'Engineering Cost Computation System',eyebrow:'Case study 03 / Engineering analysis',context:'An interactive engineering-cost computation system that translates parameterized costing inputs into dynamic calculations, cost-saving analysis and model/variant-level aggregation.',solution:'Translated dimensions, raw materials and costing factors into an interactive computation workflow with retrieval, editing, cost-saving analysis, model/variant aggregation and Excel export.',capabilities:['Parameterized inputs','Dynamic computation','Business-rule-based calculation','Cost-saving analysis','Data persistence','Retrieval and editing','Model-level aggregation','Variant-level aggregation','Part-level costing','Excel export'],technologies:['React','JavaScript','SharePoint','Excel'],impact:'A focused business application within the 3-application delivery at Maruti Suzuki India Limited.',flow:['Define','Compute','Analyze','Edit','Aggregate','Export']},
+      {name:'Training Operations Platform',eyebrow:'Case study 02 / People operations',context:'A configurable training operations platform designed around reusable workflow logic, dynamic scheduling, hierarchical approvals and department-level reporting.',solution:'Built a Power Apps workflow around reusable business logic, dynamic scheduling, hierarchical approvals and dashboard aggregation.',capabilities:['Configurable workflows','Reusable business logic','Trainee onboarding','Dynamic scheduling','Training modules','Hierarchical approvals','Department scalability','Workflow automation'],technologies:['Power Apps','Power Automate','SharePoint','Power BI'],impact:'Reusable core logic currently supporting 3 departments and structured to scale toward 9+ departments with limited changes to the underlying logic.',flow:['Onboard','Plan','Schedule','Approve','Complete','Report']},
+      {name:'Benchmarking Data Platform',eyebrow:'Case study 01 / Data workflow',context:'A structured benchmarking data platform connecting custom data-entry interfaces, automated workflows, centralized SharePoint persistence, retrieval, comparison and dashboard reporting.',solution:'Designed a connected workflow that moves benchmark inputs through validation and automation into SharePoint, then supports retrieval, editing, comparison and dashboard reporting.',capabilities:['Structured data entry','Data persistence','Automated workflows','Retrieval and editing','Benchmark comparison','Dashboard reporting','AI-assisted retrieval','Structured tabular responses'],technologies:['HTML','CSS','JavaScript','SharePoint','Power Automate','Copilot Agent'],impact:'One of 3 delivered business applications contributing to 12+ automated flows.',flow:['Data entry','Validate','Automate','Persist','Compare','Report','Retrieve']},
+   ];
+     {name:'Engineering Cost Computation System',eyebrow:'Case study 03 / Engineering analysis',context:'An interactive engineering-cost computation system that translates parameterized costing inputs into dynamic calculations, cost-saving analysis and model/variant-level aggregation.',solution:'Translated dimensions, raw materials and costing factors into an interactive computation workflow with retrieval, editing, cost-saving analysis, model/variant aggregation and Excel export.',capabilities:['Parameterized inputs','Dynamic computation','Business-rule-based calculation','Cost-saving analysis','Data persistence','Retrieval and editing','Model-level aggregation','Variant-level aggregation','Part-level costing','Excel export'],technologies:['React','JavaScript','SharePoint','Excel'],impact:'A focused business application within the 3-application delivery at Maruti Suzuki India Limited.',flow:['Define','Compute','Analyze','Edit','Aggregate','Export']}
+/*/*
+//
+    const faqs=[
+      {q:'How much frontend experience does Hari have?',a:'Hari has 3+ years of continuous frontend development experience, spanning HTML, CSS, JavaScript, React, APIs and modern application development. His most recent professional work at Maruti Suzuki extends this foundation into business applications, workflow automation and AI-assisted systems.',href:'#experience',label:'View the development journey'},
+      {q:'What did Hari do at Maruti?',a:'At Maruti Suzuki India Limited, Hari works as a Fixed Term Graduate Executive in Interior Lighting & Accessories. He has developed business applications involving benchmarking data, training operations and engineering cost computation, combining application interfaces, Power Platform automation, SharePoint, dashboards and Copilot-assisted retrieval.',href:'#experience',label:'View Maruti case studies'},
+      {q:'Is Hari only a Power Apps developer?',a:'No. His development journey is broader. His frontend foundation includes HTML, CSS, JavaScript, React, Next.js and REST APIs. His professional work expanded into Power Apps, Power Automate, SharePoint, Power BI and Copilot Agents for business-system development.',href:'#skills',label:'Explore the skills'},
+      {q:'What Power Platform experience does Hari have?',a:'His Power Platform experience includes Power Apps, Power Automate, Power BI and SharePoint, used across business applications, training operations, benchmark workflows and dashboards.',href:'#skills',label:'See Power Platform'},
+      {q:"What is Hari's education?",a:'Hari is pursuing an MCA in Artificial Intelligence & Machine Learning at Amity University, Noida, expected Dec 2027. He completed a BCA at Maharishi Dayanand University, Rohtak, from 2022 - 2025.',href:'#about',label:'View education'}
+    ];
+    const el=(tag,html,cls='')=>{const node=document.createElement(tag);node.className=cls;node.innerHTML=html;return node};
+    const chips=items=>items.map(item=>`<span class="chip">${item}</span>`).join('');
+    document.getElementById('toolCards').innerHTML=skills.slice(0,3).map(s=>`<a href="#skills" class="panel tool-card"><p class="eyebrow">${s.number}</p><h3>${s.name}</h3><p>${s.description}</p><div class="chips">${chips(s.items.slice(0,5))}</div></a>`).join('');
+    document.getElementById('experience-cases').innerHTML=projects.map((p,i)=>`<article class="panel experience-card compact"><div class="experience-top"><div><p class="eyebrow">${p.eyebrow}</p><h3>${p.name}</h3></div><span class="badge">Abstracted</span></div><p>${p.solution}</p><a class="explore" href="#experience-${i}">Explore case ↗</a></article>`).join('');
+    document.getElementById('experience-cases').insertAdjacentHTML('afterend',`<div class="grid gap-6" style="margin-top:32px">${projects.map((p,i)=>`<article id="experience-${i}" class="panel experience-card"><div class="experience-top"><div><p class="eyebrow">${p.eyebrow}</p><h3>${p.name}</h3></div><span class="badge">Confidentiality-safe</span></div><div class="experience-body"><div><p>${p.solution}</p><div class="chips">${chips(p.technologies)}</div><div class="impact">${p.impact}</div></div><div class="flow"><div class="flow-label">Capabilities & flow</div><p style="margin-top:12px">${p.capabilities.join(' · ')}</p><div class="flow-steps">${p.flow.map((step,index)=>`${index?'<b>→</b>':''}${step}`).join('')}</div></div></div></article>`).join('')}</div>`);
+    const skillRoot=document.getElementById('skillCards');
+    function renderSkills(query=''){const q=query.toLowerCase();const filtered=skills.map(s=>({...s,items:s.items.filter(item=>item.toLowerCase().includes(q))})).filter(s=>s.items.length);skillRoot.innerHTML=filtered.length?filtered.map(s=>`<article class="panel skill-card"><span class="number">${s.items.length} skills</span><p class="eyebrow">${s.number}</p><h3>${s.name}</h3><p>${s.description}</p><div class="chips">${chips(s.items)}</div></article>`).join(''):'<div class="panel skill-empty">No approved skill matches that search.</div>'}
+    renderSkills();document.getElementById('skillSearch').addEventListener('input',e=>renderSkills(e.target.value));
+    document.getElementById('conceptCards').innerHTML=concepts.map((c,i)=>`<article class="panel concept-card"><span class="signal" style="font-size:22px">${c[0]}</span><span class="muted" style="float:right;font-size:12px">0${i+1}</span><h3>${c[1]}</h3><p>${c[2]}</p></article>`).join('');
+    document.getElementById('resumeExperience').innerHTML=projects.map(p=>`<li>${p.name}: ${p.solution} ${p.impact}</li>`).join('')+'<li>Delivered 3 business applications and 12+ automated flows, impacting 3+ departments and automating more than 50% of targeted manual work.</li>';
+    document.getElementById('resumeSkills').innerHTML=skills.map(s=>`<p><strong>${s.name}</strong><br>${s.items.join(' · ')}</p>`).join('');
+    const messages=document.getElementById('messages');
+    function addMessage(role,text,link,label){const row=el('div',`<span class="avatar">${role==='user'?'●':'✦'}</span><div class="bubble">${text}${link?`<br><a class="explore" href="${link}">${label} ↗</a>`:''}</div>`,`message ${role}`);messages.appendChild(row);messages.scrollTop=messages.scrollHeight}
+    addMessage('assistant','Hi - I can answer concise, factual questions about Hari’s approved portfolio. Try asking about his experience, skills or education.');
+    const quick=['What did Hari build at Maruti?','What technologies does Hari use?',"What is Hari's React experience?"];document.getElementById('quickPrompts').innerHTML=quick.map(q=>`<button type="button">${q}</button>`).join('');document.querySelectorAll('#quickPrompts button').forEach(b=>b.addEventListener('click',()=>{document.getElementById('chatInput').value=b.textContent}));
+    function answer(question){const q=question.toLowerCase();let best=null,score=0;faqs.forEach(f=>{const terms=f.q.toLowerCase().replace(/[?']/g,'').split(/\s+/).filter(t=>t.length>3);const hits=terms.filter(t=>q.includes(t)).length;const ratio=hits/terms.length;if(hits>=2&&ratio>score){best=f;score=ratio}});return best}
+    document.getElementById('chatForm').addEventListener('submit',e=>{e.preventDefault();const input=document.getElementById('chatInput'),question=input.value.trim();if(!question)return;addMessage('user',question);input.value='';const hit=answer(question);setTimeout(()=>addMessage('assistant',hit?hit.a:'That information is not available in the portfolio knowledge base.',hit?.href,hit?.label),160)});
+    const menu=document.getElementById('mobileNav'),menuButton=document.getElementById('menuButton');menuButton.addEventListener('click',()=>{const isOpen=!menu.classList.contains('hidden');menu.classList.toggle('hidden');menuButton.setAttribute('aria-expanded',String(!isOpen));menuButton.textContent=isOpen?'☰':'×'});menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.add('hidden');menuButton.textContent='☰';menuButton.setAttribute('aria-expanded','false')}));
+    document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();const name=document.getElementById('name').value.trim(),email=document.getElementById('email').value.trim(),message=document.getElementById('message').value.trim(),honeypot=document.getElementById('website').value;if(honeypot||!name||!email||message.length<20)return;const subject=encodeURIComponent(`Portfolio enquiry from ${name}`),body=encodeURIComponent(`${message}\n\nReply to: ${email}`);window.location.href=`mailto:thehariompandey@gmail.com?subject=${subject}&body=${body}`;const success=document.getElementById('formSuccess');success.textContent='Your email client should now open with a prepared message. If it does not, email thehariompandey@gmail.com directly.';success.classList.remove('hidden');e.target.reset()});
+    document.getElementById('printResume').addEventListener('click',()=>window.print());
+  -->
+    <script>
+      const skills = [
+        {
+          name: "Frontend",
+          number: "01",
+          description:
+            "Frontend foundations for responsive, component-based applications.",
+          items: [
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "React",
+            "Next.js",
+            "Bootstrap",
+            "REST APIs",
+            "API Integration",
+            "Responsive UI",
+            "Reusable Components",
+          ],
+        },
+        {
+          name: "Power Platform",
+          number: "02",
+          description:
+            "Business applications and workflow automation with Microsoft tools.",
+          items: ["Power Apps", "Power Automate", "Power BI", "SharePoint"],
+        },
+        {
+          name: "AI & GenAI",
+          number: "03",
+          description:
+            "Grounded AI experiences connected to useful business context.",
+          items: [
+            "Generative AI",
+            "Prompt Engineering",
+            "Copilot Agents",
+            "OpenAI API",
+            "Gemini",
+            "Chatbot Development",
+          ],
+        },
+        {
+          name: "Programming & Data",
+          number: "04",
+          description:
+            "The data and integration layer behind reliable workflows.",
+          items: ["JavaScript", "SQL", "JSON"],
+        },
+        {
+          name: "Tools",
+          number: "05",
+          description:
+            "A practical toolkit for shipping, testing and communicating work.",
+          items: [
+            "Git",
+            "GitHub",
+            "VS Code",
+            "Postman",
+            "Figma",
+            "Advanced Excel",
+            "Advanced PowerPoint",
+          ],
+        },
+      ];
+      const projects = [
+        {
+          name: "Benchmarking Data Platform",
+          eyebrow: "Case study 01 / Data workflow",
+          context:
+            "A structured benchmarking data platform connecting custom data-entry interfaces, automated workflows, centralized SharePoint persistence, retrieval, comparison and dashboard reporting.",
+          solution:
+            "Designed a connected workflow that moves benchmark inputs through validation and automation into SharePoint, then supports retrieval, editing, comparison and dashboard reporting.",
+          capabilities: [
+            "Structured data entry",
+            "Data persistence",
+            "Automated workflows",
+            "Retrieval and editing",
+            "Benchmark comparison",
+            "Dashboard reporting",
+            "AI-assisted retrieval",
+            "Structured tabular responses",
+          ],
+          technologies: [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "SharePoint",
+            "Power Automate",
+            "Copilot Agent",
+          ],
+          impact:
+            "One of 3 delivered business applications contributing to 12+ automated flows.",
+          flow: [
+            "Data entry",
+            "Validate",
+            "Automate",
+            "Persist",
+            "Compare",
+            "Report",
+            "Retrieve",
+          ],
+          ai: "AI-assisted benchmark retrieval: a Copilot Agent returns relevant benchmark information in structured tabular form.",
+        },
+        {
+          name: "Training Operations Platform",
+          eyebrow: "Case study 02 / People operations",
+          context:
+            "A configurable training operations platform designed around reusable workflow logic, dynamic scheduling, hierarchical approvals and department-level reporting.",
+          solution:
+            "Built a Power Apps workflow around reusable business logic, dynamic scheduling, hierarchical approvals and dashboard aggregation.",
+          capabilities: [
+            "Configurable workflows",
+            "Reusable business logic",
+            "Trainee onboarding",
+            "Dynamic scheduling",
+            "Training modules",
+            "Hierarchical approvals",
+            "Department scalability",
+            "Workflow automation",
+          ],
+          technologies: [
+            "Power Apps",
+            "Power Automate",
+            "SharePoint",
+            "Power BI",
+          ],
+          impact:
+            "Reusable core logic currently supporting 3 departments and structured to scale toward 9+ departments with limited changes to the underlying logic.",
+          flow: [
+            "Onboard",
+            "Plan",
+            "Schedule",
+            "Approve",
+            "Complete",
+            "Report",
+          ],
+        },
+        {
+          name: "Engineering Cost Computation System",
+          eyebrow: "Case study 03 / Engineering analysis",
+          context:
+            "An interactive engineering-cost computation system that translates parameterized costing inputs into dynamic calculations, cost-saving analysis and model/variant-level aggregation.",
+          solution:
+            "Translated dimensions, raw materials and costing factors into an interactive computation workflow with retrieval, editing, cost-saving analysis, model/variant aggregation and Excel export.",
+          capabilities: [
+            "Parameterized inputs",
+            "Dynamic computation",
+            "Business-rule-based calculation",
+            "Cost-saving analysis",
+            "Data persistence",
+            "Retrieval and editing",
+            "Model-level aggregation",
+            "Variant-level aggregation",
+            "Part-level costing",
+            "Excel export",
+          ],
+          technologies: ["React", "JavaScript", "SharePoint", "Excel"],
+          impact:
+            "A focused business application within the 3-application delivery at Maruti Suzuki India Limited.",
+          flow: ["Define", "Compute", "Analyze", "Edit", "Aggregate", "Export"],
+        },
+      ];
+      const faqs = [
+        {
+          q: "How much frontend experience does Hari have?",
+          a: "Hari has 3+ years of continuous frontend development experience, spanning HTML, CSS, JavaScript, React, APIs and modern application development. His professional work at Maruti Suzuki extends this foundation into business applications, workflow automation and AI-assisted systems.",
+          href: "#experience",
+          label: "View the development journey",
+        },
+        {
+          q: "What did Hari do at Maruti?",
+          a: "At Maruti Suzuki India Limited, Hari works as a Fixed Term Graduate Executive in Interior Lighting & Accessories. He developed business applications involving benchmarking data, training operations and engineering cost computation, combining interfaces, Power Platform automation, SharePoint, dashboards and Copilot-assisted retrieval.",
+          href: "#experience",
+          label: "View Maruti case studies",
+        },
+        {
+          q: "Is Hari only a Power Apps developer?",
+          a: "No. His frontend foundation includes HTML, CSS, JavaScript, React, Next.js and REST APIs. His professional work expanded into Power Apps, Power Automate, SharePoint, Power BI and Copilot Agents.",
+          href: "#skills",
+          label: "Explore the skills",
+        },
+      ];
+      const chips = (a) =>
+        a.map((x) => '<span class="chip">' + x + "</span>").join("");
+      document.getElementById("toolCards").innerHTML = skills
+        .slice(0, 3)
+        .map(
+          (s) =>
+            '<a href="#skills" class="panel tool-card"><p class="eyebrow">' +
+            s.number +
+            "</p><h3>" +
+            s.name +
+            "</h3><p>" +
+            s.description +
+            '</p><div class="chips">' +
+            chips(s.items.slice(0, 5)) +
+            "</div></a>",
+        )
+        .join("");
+      document.getElementById("experience-cases").innerHTML = projects
+        .map(
+          (p, i) =>
+            '<article class="panel experience-card compact"><div class="experience-top"><div><p class="eyebrow">' +
+            p.eyebrow +
+            "</p><h3>" +
+            p.name +
+            '</h3></div><span class="badge">Abstracted</span></div><p>' +
+            p.context +
+            '</p><a class="explore" href="#experience-' +
+            i +
+            '">Explore case ↗</a></article>',
+        )
+        .join("");
+      document
+        .getElementById("experience-cases")
+        .insertAdjacentHTML(
+          "afterend",
+          '<div class="grid gap-6" style="margin-top:32px">' +
+            projects
+              .map(
+                (p, i) =>
+                  '<article id="experience-' +
+                  i +
+                  '" class="panel experience-card"><div class="experience-top"><div><p class="eyebrow">' +
+                  p.eyebrow +
+                  "</p><h3>" +
+                  p.name +
+                  '</h3></div><span class="badge">Confidentiality-safe</span></div><div class="experience-body"><div><p>' +
+                  p.context +
+                  '</p><p style="margin-top:14px">' +
+                  p.solution +
+                  '</p><div class="chips">' +
+                  chips(p.technologies) +
+                  '</div><div class="impact">' +
+                  p.impact +
+                  '</div></div><div class="flow"><div class="flow-label">Capabilities & flow</div><p style="margin-top:12px">' +
+                  p.capabilities.join(" · ") +
+                  '</p><div class="flow-steps">' +
+                  p.flow.map((x, n) => (n ? "<b>→</b>" : "") + x).join("") +
+                  "</div></div></div>" +
+                  (p.ai
+                    ? '<div class="impact"><div class="flow-label">AI capability</div>' +
+                      p.ai +
+                      "</div>"
+                    : "") +
+                  "</article>",
+              )
+              .join("") +
+            "</div>",
+        );
+      const skillRoot = document.getElementById("skillCards");
+      function renderSkills(q) {
+        q = (q || "").toLowerCase();
+        skillRoot.innerHTML =
+          skills
+            .map((s) => ({
+              ...s,
+              items: s.items.filter((x) => x.toLowerCase().includes(q)),
+            }))
+            .filter((s) => s.items.length)
+            .map(
+              (s) =>
+                '<article class="panel skill-card"><span class="number">' +
+                s.items.length +
+                ' skills</span><p class="eyebrow">' +
+                s.number +
+                "</p><h3>" +
+                s.name +
+                "</h3><p>" +
+                s.description +
+                '</p><div class="chips">' +
+                chips(s.items) +
+                "</div></article>",
+            )
+            .join("") ||
+          '<div class="panel skill-empty">No approved skill matches that search.</div>';
+      }
+      renderSkills();
+      document
+        .getElementById("skillSearch")
+        .addEventListener("input", (e) => renderSkills(e.target.value));
+      const concepts = [
+        [
+          "✦",
+          "Generative AI",
+          "The capability to create, summarize and transform language or structured information.",
+        ],
+        [
+          "{}",
+          "Prompt Engineering",
+          "Give a model clear context, constraints and an outcome.",
+        ],
+        [
+          "✧",
+          "Copilot Agents",
+          "Retrieve approved business information in a useful format.",
+        ],
+        [
+          "↗",
+          "Business automation",
+          "Turn an answer or decision into an action.",
+        ],
+      ];
+      document.getElementById("conceptCards").innerHTML = concepts
+        .map(
+          (c, i) =>
+            '<article class="panel concept-card"><span class="signal" style="font-size:22px">' +
+            c[0] +
+            '</span><span class="muted" style="float:right;font-size:12px">0' +
+            (i + 1) +
+            "</span><h3>" +
+            c[1] +
+            "</h3><p>" +
+            c[2] +
+            "</p></article>",
+        )
+        .join("");
+      document.getElementById("resumeExperience").innerHTML =
+        projects
+          .map(
+            (p) =>
+              "<li>" + p.name + ": " + p.solution + " " + p.impact + "</li>",
+          )
+          .join("") +
+        "<li>Delivered 3 business applications and 12+ automated flows, impacting 3+ departments and automating 50%+ of targeted manual work.</li>";
+      document.getElementById("resumeSkills").innerHTML = skills
+        .map(
+          (s) =>
+            "<p><strong>" +
+            s.name +
+            "</strong><br>" +
+            s.items.join(" · ") +
+            "</p>",
+        )
+        .join("");
+      const messages = document.getElementById("messages");
+      function addMessage(role, text, href, label) {
+        const row = document.createElement("div");
+        row.className = "message " + role;
+        row.innerHTML =
+          '<span class="avatar">' +
+          (role === "user" ? "●" : "✦") +
+          '</span><div class="bubble">' +
+          text +
+          (href
+            ? '<br><a class="explore" href="' + href + '">' + label + " ↗</a>"
+            : "") +
+          "</div>";
+        messages.appendChild(row);
+        messages.scrollTop = messages.scrollHeight;
+      }
+      addMessage(
+        "assistant",
+        "Hi - I can answer concise, factual questions about Hari’s approved portfolio.",
+      );
+      const quick = [
+        "How much frontend experience does Hari have?",
+        "What did Hari do at Maruti?",
+        "Is Hari only a Power Apps developer?",
+      ];
+      document.getElementById("quickPrompts").innerHTML = quick
+        .map((q) => '<button type="button">' + q + "</button>")
+        .join("");
+      document
+        .querySelectorAll("#quickPrompts button")
+        .forEach((b) =>
+          b.addEventListener(
+            "click",
+            () => (document.getElementById("chatInput").value = b.textContent),
+          ),
+        );
+      function answer(q) {
+        q = q.toLowerCase();
+        let best = null,
+          score = 0;
+        faqs.forEach((f) => {
+          const t = f.q
+              .toLowerCase()
+              .replace(/[?']/g, "")
+              .split(/\s+/)
+              .filter((x) => x.length > 3),
+            h = t.filter((x) => q.includes(x)).length;
+          if (h >= 2 && h / t.length > score) {
+            best = f;
+            score = h / t.length;
+          }
+        });
+        return best;
+      }
+      document.getElementById("chatForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const i = document.getElementById("chatInput"),
+          q = i.value.trim();
+        if (!q) return;
+        addMessage("user", q);
+        i.value = "";
+        const f = answer(q);
+        setTimeout(
+          () =>
+            addMessage(
+              "assistant",
+              f
+                ? f.a
+                : "That information is not available in the portfolio knowledge base.",
+              f && f.href,
+              f && f.label,
+            ),
+          160,
+        );
+      });
+      const menu = document.getElementById("mobileNav"),
+        menuButton = document.getElementById("menuButton");
+      menuButton.addEventListener("click", () => {
+        const open = !menu.classList.contains("hidden");
+        menu.classList.toggle("hidden");
+        menuButton.textContent = open ? "☰" : "×";
+        menuButton.setAttribute("aria-expanded", String(!open));
+      });
+      menu.querySelectorAll("a").forEach((a) =>
+        a.addEventListener("click", () => {
+          menu.classList.add("hidden");
+          menuButton.textContent = "☰";
+          menuButton.setAttribute("aria-expanded", "false");
+        }),
+      );
+      document.getElementById("contactForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const n = document.getElementById("name").value.trim(),
+          m = document.getElementById("message").value.trim(),
+          em = document.getElementById("email").value.trim();
+        if (!n || !em || m.length < 20) return;
+        window.location.href =
+          "mailto:thehariompandey@gmail.com?subject=" +
+          encodeURIComponent("Portfolio enquiry from " + n) +
+          "&body=" +
+          encodeURIComponent(m + "\n\nReply to: " + em);
+        document.getElementById("formSuccess").textContent =
+          "Your email client should now open with a prepared message.";
+        document.getElementById("formSuccess").classList.remove("hidden");
+        e.target.reset();
+      });
+      document
+        .getElementById("printResume")
+        .addEventListener("click", () => window.print());
+      const themeToggle = document.getElementById("themeToggle"),
+        themeIcon = document.getElementById("themeIcon"),
+        themeText = document.getElementById("themeText"),
+        savedTheme = localStorage.getItem("portfolio-theme");
+      function setTheme(theme) {
+        const light = theme === "light";
+        document.documentElement.dataset.theme = light ? "light" : "dark";
+        themeToggle.setAttribute("aria-pressed", String(light));
+        themeToggle.setAttribute(
+          "aria-label",
+          light ? "Switch to dark theme" : "Switch to light theme",
+        );
+        themeIcon.textContent = light ? "☾" : "☼";
+        themeText.textContent = light ? "Dark" : "Light";
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute("content", light ? "#f5f7f4" : "#0b0f14");
+      }
+      setTheme(savedTheme === "light" ? "light" : "dark");
+      themeToggle.addEventListener("click", () => {
+        const next =
+          document.documentElement.dataset.theme === "light" ? "dark" : "light";
+        setTheme(next);
+        localStorage.setItem("portfolio-theme", next);
+      });
+    </script>
+  </body>
+</html>
