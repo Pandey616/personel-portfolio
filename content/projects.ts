@@ -105,8 +105,7 @@ export const independentProjects: IndependentProject[] = [
     links: [
       {
         label: "Live Demo",
-        href: "https://example.com/zooflix",
-        placeholder: true,
+        href: "https://zooflix.netlify.app/"
       },
     ],
   },
