@@ -79,38 +79,46 @@ export function ExperienceCard({
               </p>
             </div>
           </div>
-          <div className="grid gap-7 border-t border-white/[.08] pt-7 md:grid-cols-2">
-            <div>
-              <p className="eyebrow mb-3">Complexity / capabilities</p>
-              <div className="flex flex-wrap gap-2">
-                {project.capabilities.map((capability) => (
-                  <span
-                    key={capability}
-                    className="rounded-lg bg-white/[.06] px-3 py-2 text-xs font-semibold text-slate-300"
-                  >
-                    {capability}
-                  </span>
-                ))}
+          <details className="project-details border-t border-white/[.08] pt-5">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-bold text-white focus-ring">
+              Technical depth: complexity, scale and impact
+              <span className="text-signal" aria-hidden="true">+</span>
+            </summary>
+            <div className="mt-6 grid gap-7 md:grid-cols-2">
+              <div>
+                <p className="eyebrow mb-3">Complexity / capabilities</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.capabilities.map((capability) => (
+                    <span
+                      key={capability}
+                      className="rounded-lg bg-white/[.06] px-3 py-2 text-xs font-semibold text-slate-300"
+                    >
+                      {capability}
+                    </span>
+                  ))}
+                </div>
               </div>
+              <div>
+                <p className="eyebrow mb-3">Architecture / scale</p>
+                <p className="text-sm leading-7 text-slate-400">
+                  {project.architecture.join(" -> ")}
+                </p>
+                <ul className="mt-4 space-y-2 text-sm leading-6 text-slate-400">
+                  {project.scale.map((item) => (
+                    <li key={item}>- {item}</li>
+                  ))}
+                </ul>
+              </div>
+              {project.ai && (
+                <div className="border-t border-white/[.08] pt-5 md:col-span-2">
+                  <p className="eyebrow mb-2">AI capability</p>
+                  <p className="text-sm leading-7 text-slate-400">
+                    {project.ai}
+                  </p>
+                </div>
+              )}
             </div>
-            <div>
-              <p className="eyebrow mb-3">Architecture / scale</p>
-              <p className="text-sm leading-7 text-slate-400">
-                {project.architecture.join(" -> ")}
-              </p>
-              <ul className="mt-4 space-y-2 text-sm leading-6 text-slate-400">
-                {project.scale.map((item) => (
-                  <li key={item}>- {item}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          {project.ai && (
-            <div className="border-t border-white/[.08] pt-5">
-              <p className="eyebrow mb-2">AI capability</p>
-              <p className="text-sm leading-7 text-slate-400">{project.ai}</p>
-            </div>
-          )}
+          </details>
         </div>
       )}
       {compact && (

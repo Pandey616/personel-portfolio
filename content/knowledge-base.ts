@@ -5,6 +5,7 @@ import {
   developmentJourney,
   experienceProjects,
 } from "@/content/experience";
+import { independentProjects } from "@/content/projects";
 import { profile, previousExperience, impactMetrics } from "@/content/resume";
 import { skillCategories } from "@/content/skills";
 
@@ -42,6 +43,13 @@ SharePoint, Copilot Agents, React, JavaScript, Excel, SQL and JSON. His AI and
 generative-AI toolkit also includes prompt engineering, the OpenAI API, Gemini
 and chatbot development. Other tools listed in the profile are VS Code, Postman,
 Figma, Advanced Excel and Advanced PowerPoint.
+
+  His independent frontend work includes this portfolio website, a Next.js,
+  TypeScript and React application with centralized content modules, reusable
+  components, responsive UI, an approved knowledge base, API-backed Ask Hari
+  interaction, deterministic fallback behaviour and an optional server-side
+  OpenAI API fallback. He also built Zooflix as a responsive React frontend
+  application with reusable components, navigation, routing and interactive UI.
 
 Hari is pursuing a Master of Computer Applications in Artificial Intelligence &
 Machine Learning at Amity University, Noida, expected December 2027. He
@@ -154,9 +162,30 @@ export const recruiterFaqs = [
   {
     question: "What are Hari's main strengths?",
     answer:
-      "Hari's strengths sit at the intersection of frontend interfaces, business application engineering, workflow automation, structured data workflows, dashboards and grounded AI experiences.",
+      "Hari's strongest areas are frontend and application development, AI-assisted application development, business process automation and data-driven business systems.",
     href: "/skills",
     label: "Explore the toolkit",
+  },
+  {
+    question: "What independent frontend projects has Hari built?",
+    answer:
+      "Hari's independent frontend projects include this portfolio website and Zooflix. The portfolio demonstrates Next.js, TypeScript, React, centralized content, reusable components, responsive UI and a safe API-backed assistant. Zooflix demonstrates React, JavaScript, responsive design, reusable components, navigation and interactive UI.",
+    href: "/experience#independent-frontend-work",
+    label: "View independent projects",
+  },
+  {
+    question: "What did Hari build for this portfolio?",
+    answer:
+      "Hari built a Next.js App Router portfolio with TypeScript, React and Tailwind CSS. It uses centralized content modules, reusable UI components, responsive layouts, interactive skill filtering, a print-friendly resume, theme support and an Ask Hari API route that uses deterministic approved-FAQ matching before an optional server-side OpenAI API fallback.",
+    href: "/experience#portfolio-website",
+    label: "View portfolio details",
+  },
+  {
+    question: "What is Zooflix?",
+    answer:
+      "Zooflix is an independent React frontend application built with JavaScript and HTML/CSS. It demonstrates responsive design, reusable components, navigation, routing and interactive UI rather than functioning only as a static portfolio exercise.",
+    href: "/experience#zooflix",
+    label: "View Zooflix details",
   },
   {
     question: "What is Hari's freelance frontend experience?",
@@ -225,6 +254,7 @@ export const knowledgeBase = {
   impactMetrics,
   currentExperience,
   experienceProjects,
+  independentProjects,
   previousExperience,
   skillCategories,
   education,
@@ -239,6 +269,8 @@ export const knowledgeBase = {
     "Treat dates as portfolio dates: frontend development is 2023-2025 and the Maruti role is Sep 2025-present.",
     "Do not turn a listed skill into a claim of professional employment, proficiency level, ownership or production scale unless the portfolio explicitly says so.",
     "When a question asks for a comparison, summarize only the documented difference between the frontend foundation and the Maruti application-engineering work.",
+    "Independent-project links are only shown when a verified project URL is available; do not invent Live Demo or GitHub URLs.",
+    "Distinguish verified portfolio facts from unsupported details and confidential Maruti information. For unsupported or confidential specifics, say they are not available in the portfolio knowledge base.",
   ],
 } as const;
 

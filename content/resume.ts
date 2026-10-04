@@ -12,12 +12,31 @@ export const profile = {
 } as const;
 
 export const impactMetrics = [
-  { value: "3+", label: "years frontend development" },
-  { value: "1+", label: "year professional application development" },
-  { value: "3", label: "business applications" },
-  { value: "12+", label: "automated flows" },
-  { value: "3+", label: "departments impacted" },
-  { value: "50%+", label: "targeted manual work automated" },
+  { value: "3+", label: "Years · Frontend Development" },
+  { value: "1+", label: "Year · Professional Application Development" },
+  { value: "3", label: "Business Applications" },
+  { value: "12+", label: "Automated Workflows" },
+  { value: "3+", label: "Departments Impacted" },
+  { value: "50%+", label: "Targeted Manual Work Automated" },
+] as const;
+
+export const engineeringQuality = [
+  {
+    name: "Performance",
+    description: "Uses Next Image optimization for the hero asset and keeps the interface focused on lightweight native UI patterns.",
+  },
+  {
+    name: "Accessibility",
+    description: "Uses semantic sections, labels, keyboard-visible focus states and accessible controls across the interactive UI.",
+  },
+  {
+    name: "Responsive engineering",
+    description: "Layouts, cards, navigation, metrics and project details adapt across mobile, tablet and desktop breakpoints.",
+  },
+  {
+    name: "Reliability",
+    description: "Ask Hari includes deterministic fallback behaviour, loading feedback and explicit error handling when the assistant is unavailable.",
+  },
 ] as const;
 
 export const previousExperience = {

@@ -7,58 +7,68 @@ export type SkillCategory = {
 
 export const skillCategories: SkillCategory[] = [
   {
-    name: "Frontend",
+    name: "Core Frontend Engineering",
     number: "01",
     description:
-      "Frontend foundations for responsive, component-based applications.",
+      "The foundation for responsive, component-based web applications.",
     skills: [
-      "HTML5",
-      "CSS3",
       "JavaScript",
+      "TypeScript",
       "React",
       "Next.js",
+      "HTML5",
+      "CSS3",
       "Bootstrap",
-      "REST APIs",
-      "API Integration",
-      "Responsive UI",
-      "Reusable Components",
     ],
   },
   {
-    name: "Power Platform",
+    name: "Application Engineering",
     number: "02",
     description:
-      "Business applications and workflow automation with Microsoft tools.",
-    skills: ["Power Apps", "Power Automate", "Power BI", "SharePoint"],
+      "The integration, architecture and delivery practices behind usable applications.",
+    skills: [
+      "REST APIs",
+      "API Integration",
+      "Component Architecture",
+      "Responsive UI",
+      "Reusable Components",
+      "Git",
+      "GitHub",
+    ],
   },
   {
-    name: "AI & GenAI",
+    name: "AI Engineering",
     number: "03",
     description:
-      "Grounded AI experiences connected to useful business context.",
+      "Practical AI capabilities connected to useful application and business context.",
     skills: [
       "Generative AI",
-      "Prompt Engineering",
-      "Copilot Agents",
       "OpenAI API",
       "Gemini",
+      "Prompt Engineering",
+      "Copilot Agents",
+      "AI-assisted application workflows",
       "Chatbot Development",
     ],
   },
   {
-    name: "Programming & Data",
+    name: "Business Automation",
     number: "04",
-    description: "The data and integration layer behind reliable workflows.",
-    skills: ["JavaScript", "SQL", "JSON"],
+    description:
+      "Data-driven business applications and workflow automation with Microsoft tools.",
+    skills: ["Power Apps", "Power Automate", "SharePoint", "Power BI"],
   },
   {
-    name: "Tools",
+    name: "Supporting Tools & Data",
     number: "05",
-    description:
-      "A practical toolkit for shipping, testing and communicating work.",
+    description: "Supporting tools used to build, inspect and communicate work.",
+    skills: ["SQL", "JSON"],
+  },
+  {
+    name: "Delivery Tools",
+    number: "06",
+    description: "A practical toolkit for shipping, testing and communicating work.",
     skills: [
-      "Git",
-      "GitHub",
       "VS Code",
       "Postman",
       "Figma",

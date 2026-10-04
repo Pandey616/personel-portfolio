@@ -32,7 +32,7 @@ OPENAI_MODEL=gpt-4o-mini
 
 ## Content source of truth
 
-Approved facts live in `content/` and are consumed by the UI and Ask Hari route: `resume.ts`, `experience.ts`, `skills.ts`, `education.ts`, `certifications.ts` and `knowledge-base.ts`.
+Approved facts live in `content/` and are consumed by the UI and Ask Hari route: `resume.ts`, `experience.ts`, `projects.ts`, `skills.ts`, `education.ts`, `certifications.ts` and `knowledge-base.ts`. Independent project links are only added when a verified URL is available.
 
 No Maruti screenshots, internal data, URLs or proprietary records are included. The resume route is print-friendly so a recruiter can use the browser's “Save as PDF” flow without requiring an unpublished PDF asset.
 

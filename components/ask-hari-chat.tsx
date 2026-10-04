@@ -12,8 +12,8 @@ type Message = {
 };
 const starters = [
   "What did Hari build at Maruti?",
-  "What technologies does Hari use?",
-  "What is Hari's React experience?",
+  "What are Hari's strongest technical areas?",
+  "What did Hari build for this portfolio?",
 ];
 
 export function AskHariChat() {
