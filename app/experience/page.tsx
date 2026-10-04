@@ -1,10 +1,12 @@
 import { ShieldCheck } from "lucide-react";
 import { ExperienceCard } from "@/components/experience-card";
+import { IndependentProjectCard } from "@/components/independent-project-card";
 import {
   currentExperience,
   developmentJourney,
   experienceProjects,
 } from "@/content/experience";
+import { independentProjects } from "@/content/projects";
 
 export const metadata = { title: "Experience" };
 
@@ -59,6 +61,16 @@ export default function ExperiencePage() {
               {currentExperience.dates}. This is where frontend and application
               development moved into real business-system engineering.
             </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {currentExperience.technologies.map((technology) => (
+                <span
+                  key={technology}
+                  className="rounded-full border border-white/[.1] px-3 py-1.5 text-xs text-slate-400"
+                >
+                  {technology}
+                </span>
+              ))}
+            </div>
           </div>
           <div className="grid gap-5">
             {experienceProjects.map((project, index) => (
@@ -73,6 +85,32 @@ export default function ExperiencePage() {
                   <span>Maruti case study</span>
                 </div>
                 <ExperienceCard project={project} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section
+        id="independent-frontend-work"
+        className="section border-t border-white/[.08]"
+      >
+        <div className="container">
+          <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+            <div>
+              <p className="eyebrow mb-4">Independent frontend work</p>
+              <h2 className="display max-w-3xl text-4xl font-semibold text-white md:text-5xl">
+                Modern application proof outside Power Platform.
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-7 text-slate-500">
+                These projects make the frontend and application-engineering
+                foundation inspectable alongside the professional case studies.
+              </p>
+            </div>
+          </div>
+          <div className="mt-10 grid gap-5 lg:grid-cols-2">
+            {independentProjects.map((project) => (
+              <div id={project.slug} key={project.slug} className="scroll-mt-24">
+                <IndependentProjectCard project={project} />
               </div>
             ))}
           </div>

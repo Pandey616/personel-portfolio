@@ -39,6 +39,16 @@ export const currentExperience = {
   dates: "Sep 2025 - Present",
   description:
     "Professional application engineering: applying frontend foundations to business applications, workflow automation, data workflows, dashboards and AI-assisted retrieval.",
+  technologies: [
+    "Power Apps",
+    "Power Automate",
+    "SharePoint",
+    "Power BI",
+    "Copilot Agents",
+    "JavaScript / web technologies",
+    "Data workflows",
+    "Business process automation",
+  ],
 } as const;
 
 export const experienceProjects: ExperienceProject[] = [

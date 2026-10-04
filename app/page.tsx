@@ -2,17 +2,16 @@ import {
   ArrowDownRight,
   ArrowUpRight,
   Bot,
-  Code2,
-  Layers3,
-  Sparkles,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ExperienceCard } from "@/components/experience-card";
+import { IndependentProjectCard } from "@/components/independent-project-card";
 import { MetricStrip } from "@/components/metric-strip";
 import { SectionHeading } from "@/components/section-heading";
 import { currentExperience, experienceProjects } from "@/content/experience";
-import { profile } from "@/content/resume";
+import { independentProjects } from "@/content/projects";
+import { engineeringQuality, profile } from "@/content/resume";
 import { skillCategories } from "@/content/skills";
 
 export default function HomePage() {
@@ -79,8 +78,8 @@ export default function HomePage() {
             title="Where the work meets the stack."
             description="A working set across interface development, Microsoft business applications and grounded AI experiences."
           />
-          <div className="mt-12 grid gap-4 md:grid-cols-3">
-            {skillCategories.slice(0, 3).map((category) => (
+          <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {skillCategories.slice(0, 4).map((category) => (
               <Link
                 href="/skills"
                 key={category.name}
@@ -108,6 +107,30 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <section className="section pt-12">
+        <div className="container">
+          <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+            <SectionHeading
+              eyebrow="Featured engineering projects"
+              title="Proof of frontend work beyond business platforms."
+              description="Independent applications show how Hari approaches APIs, validation, reusable components, responsive UI and interaction-heavy product surfaces."
+            />
+            <a
+              href={profile.github}
+              target="_blank"
+              rel="noreferrer"
+              className="button button-secondary shrink-0"
+            >
+              GitHub profile <ArrowUpRight size={16} />
+            </a>
+          </div>
+          <div className="mt-12 grid gap-5 lg:grid-cols-2">
+            {independentProjects.map((project) => (
+              <IndependentProjectCard key={project.slug} project={project} />
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="section border-y border-white/[.08] bg-white/[.018]">
         <div className="container">
           <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
@@ -130,6 +153,25 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <section className="section pt-12">
+        <div className="container">
+          <SectionHeading
+            eyebrow="Engineering quality"
+            title="The portfolio is also an engineering sample."
+            description="A compact view of the implementation qualities already present in the site and its interactive systems."
+          />
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {engineeringQuality.map((item) => (
+              <article key={item.name} className="panel p-5">
+                <h3 className="text-base font-bold text-white">{item.name}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-500">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="section">
         <div className="container">
           <div className="panel relative overflow-hidden p-8 md:p-14">
@@ -140,8 +182,9 @@ export default function HomePage() {
                 Let&apos;s talk about the problem you&apos;re trying to solve.
               </h2>
               <p className="mt-6 text-base leading-7 text-slate-400">
-                Get a quick factual overview through Ask Hari, or reach out
-                directly with context about your role or team.
+                Get a quick factual overview through Ask Hari, explore the AI
+                approach, or reach out directly with context about your role or
+                team.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="/contact" className="button button-primary">
@@ -149,6 +192,9 @@ export default function HomePage() {
                 </Link>
                 <Link href="/ask-hari" className="button button-secondary">
                   Ask Hari
+                </Link>
+                <Link href="/ai-lab" className="button button-secondary">
+                  Explore AI work
                 </Link>
               </div>
             </div>

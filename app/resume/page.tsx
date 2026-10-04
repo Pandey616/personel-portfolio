@@ -4,6 +4,7 @@ import { PrintResumeButton } from "@/components/print-resume-button";
 import { certifications } from "@/content/certifications";
 import { education } from "@/content/education";
 import { currentExperience, experienceProjects } from "@/content/experience";
+import { independentProjects } from "@/content/projects";
 import { profile, previousExperience } from "@/content/resume";
 import { skillCategories } from "@/content/skills";
 
@@ -108,6 +109,18 @@ export default function ResumePage() {
                     {previousExperience.description}
                   </p>
                 </div>
+              </ResumeSection>
+              <ResumeSection title="Independent projects">
+                <ul className="list-disc space-y-2 pl-5 text-sm leading-6 text-slate-400 print:text-black">
+                  {independentProjects.map((project) => (
+                    <li key={project.slug}>
+                      <span className="font-bold text-white print:text-black">
+                        {project.name}:
+                      </span>{" "}
+                      {project.summary} Stack: {project.technologies.join(", ")}.
+                    </li>
+                  ))}
+                </ul>
               </ResumeSection>
               <ResumeSection title="Education">
                 {education.map((item) => (

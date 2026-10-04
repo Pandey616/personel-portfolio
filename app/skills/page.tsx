@@ -13,8 +13,10 @@ export default function SkillsPage() {
             A flexible stack for interfaces and workflows.
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-400">
-            Search the approved skills matrix by technology or browse the way
-            the capabilities are grouped in practice.
+            Frontend and application engineering form the foundation, followed
+            by AI engineering, business automation and supporting tools. Search
+            the approved skills matrix by technology or browse the capability
+            groups in practice.
           </p>
         </div>
       </section>
